@@ -122,7 +122,7 @@ class Command(BaseCommand):
         content = sass.compile(include_paths=node.include_paths, filename=sass_filename, output_style=self.output_style)
         basename, _ = os.path.splitext(sass_filename)
         destpath = basename + '.css'
-        with open(destpath, 'w') as fh:
+        with open(destpath, 'wb') as fh:
             fh.write(force_bytes(content))
         self.compiled_files.append(sass_filename)
         if self.verbosity > 1:
